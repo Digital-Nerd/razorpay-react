@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Home from "./Home";
+import Jitsi from "./Jitsi";
+import Product from "./Product";
+// import Video from "./Video";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Video } from "./Video";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <div className="App">
+    //   <Product/>
+    // </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/razorpay" element={<Product />} />           
+          <Route path="/jitsi" element={<Jitsi />} />
+          {/* <Route path="/jitsi" element={<Video/>} /> */}
+        </Routes>
+      </Router>
+    </>
   );
 }
 
