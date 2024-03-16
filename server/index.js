@@ -18,14 +18,8 @@ app.post("/order", async (req, res) => {
       key_secret: process.env.RAZORPAY_KEY_SECRET,
     });
 
-    // let order = await razorpay.orders.create({
-    //   amount: req.body.amount, //Amount is in the smallest currency unit (paise)
-    //   currency: "INR",
-    //   receipt: "Order #123",
-    // });
-    const options = req.body;
-    const order = await razorpay.orders.create(options);
-
+    const options = req.body; 
+    const order = await razorpay.orders.create(options); // create order
     if (!order) {
       return res.status(500).send("Error");
     }
